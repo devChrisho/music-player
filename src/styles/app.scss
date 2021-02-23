@@ -1,0 +1,38 @@
+// import partials
+@import './player';
+@import './song';
+@import './library';
+@import './nav';
+
+// font
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+h1,
+h2,
+h3 {
+  color: rgb(53, 53, 53);
+}
+
+body {
+  font-family: 'Lato', sans-serif;
+}
+
+h3,
+h4 {
+  font-weight: 400;
+  color: rgb(101, 101, 101);
+}
+
+.App{
+  transition: all 0.5s ease;
+}
+
+.library-active{
+  margin-left: 30%;
+}
