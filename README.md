@@ -2,6 +2,7 @@
 
 ![GitHub top language](https://img.shields.io/github/languages/top/superchrisho/music-player?color=yellow&logo=javascript&style=plastic)
 ![GitHub language count](https://img.shields.io/github/languages/count/superchrisho/music-player?style=plastic)
+![GitHub last commit](https://img.shields.io/github/last-commit/superchrisho/music-player?logo=github&style=plastic)
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
