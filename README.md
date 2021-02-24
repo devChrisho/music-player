@@ -4,6 +4,7 @@
 ![GitHub language count](https://img.shields.io/github/languages/count/superchrisho/music-player?style=plastic)
 ![GitHub last commit](https://img.shields.io/github/last-commit/superchrisho/music-player?logo=github&style=plastic)
 ![CodeFactor Grade](https://img.shields.io/codefactor/grade/github/superchrisho/music-player?style=plastic)
+![Snyk Vulnerabilities for GitHub Repo](https://img.shields.io/snyk/vulnerabilities/github/superchrisho/music-player?style=plastic)
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
