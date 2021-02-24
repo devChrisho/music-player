@@ -19,4 +19,13 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 ## Purpose of Project
 
-To challenge myself using the React.js library.
+To get familiar with using React.js by completing this project by DevEd.
+
+## Technologies used:
+* React.js
+* SASS
+* HTML
+* UUIDv4
+
+## Challenges faced:
+* Lacking of state management system

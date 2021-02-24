@@ -1,4 +1,3 @@
-// import { FaPlay, FaAngleLeft, FaAngleRight, FaPause } from 'react-icons/fa';
 import * as Fa from 'react-icons/fa';
 
 const Player = ({

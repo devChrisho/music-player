@@ -3,10 +3,10 @@ export const playAudio = (isPlaying, audioRef) => {
     const playPromise = audioRef.current.play();
     if (playPromise !== undefined) {
       playPromise
-        .then((audio) => {
+        .then(audio => {
           audioRef.current.play();
         })
-        .catch((error) => console.log(error));
+        .catch(error => console.log(error));
     }
   }
 };
