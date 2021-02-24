@@ -4,7 +4,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 It is a Lofi Music player that fetches songs from [ChillHop](https://chillhop.com).
 
-![Minimized View](https://github.com/superchrisho/superchrisho.github.io/GitHubImages/Musicplayer1.jpg?raw=true)
+<img src="https://github.com/superchrisho/superchrisho.github.io/blob/master/GitHubImages/Musicplayer1.jpg" width="100"/>
 
 ## Available Scripts
 
