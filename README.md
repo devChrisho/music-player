@@ -1,5 +1,7 @@
 # Music Player App
 
+![GitHub top language](https://img.shields.io/github/languages/top/superchrisho/music-player?color=yellow&logo=javascript&style=plastic)
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 It is a Lofi Music player that fetches songs from [ChillHop](https://chillhop.com).
