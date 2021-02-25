@@ -1,10 +1,10 @@
 # Music Player App
 
-![GitHub top language](https://img.shields.io/github/languages/top/superchrisho/music-player?color=yellow&logo=javascript&style=plastic)
-![GitHub language count](https://img.shields.io/github/languages/count/superchrisho/music-player?style=plastic)
 ![GitHub last commit](https://img.shields.io/github/last-commit/superchrisho/music-player?logo=github&style=plastic)
-![CodeFactor Grade](https://img.shields.io/codefactor/grade/github/superchrisho/music-player?style=plastic)
 ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/superchrisho/music-player?style=plastic)
+![CodeFactor Grade](https://img.shields.io/codefactor/grade/github/superchrisho/music-player?style=plastic)
+![GitHub language count](https://img.shields.io/github/languages/count/superchrisho/music-player?style=plastic)
+![GitHub top language](https://img.shields.io/github/languages/top/superchrisho/music-player?color=yellow&logo=javascript&style=plastic)
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
