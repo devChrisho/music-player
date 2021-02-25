@@ -10,6 +10,8 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 It is a Lofi Music player that fetches songs from [ChillHop](https://chillhop.com).
 
+[Demo](https://codesandbox.io/s/recursing-hugle-rkeb3)
+
 <img src="https://github.com/superchrisho/superchrisho.github.io/blob/master/GitHubImages/Musicplayer1.jpg" 
 width="400"
 style="float: left; margin-right: 10px"/>
