@@ -14,15 +14,15 @@ It is a Lofi Music player that fetches songs from [ChillHop](https://chillhop.co
 
 <img src="https://github.com/superchrisho/superchrisho.github.io/blob/master/GitHubImages/Musicplayer1.jpg" 
 width="400"
-style="float: left; margin-right: 10px"/>
+/>
 
 <img src="https://github.com/superchrisho/superchrisho.github.io/blob/master/GitHubImages/Musicplayer2.jpg" 
 width="400"
-style="float: left; margin-right: 10px"/>
+/>
 
 <img src="https://github.com/superchrisho/superchrisho.github.io/blob/master/GitHubImages/Musicplayer3.jpg"
 width="400" 
-style="float: left; margin-right: 10px"/>
+/>
 
 ## Available Scripts
 
