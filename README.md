@@ -12,6 +12,8 @@ It is a Lofi Music player that fetches songs from [ChillHop](https://chillhop.co
 
 [Demo](https://codesandbox.io/s/exciting-sea-p0kss)
 
+<img src="github_assets/Screen-Recording-2021-03-18-at-11.12.57-AM.gif" width="80%">
+
 <img src="https://github.com/superchrisho/superchrisho.github.io/blob/master/GitHubImages/Musicplayer1.jpg" 
 width="400"
 />
