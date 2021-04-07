@@ -11,7 +11,8 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 It is a Lofi Music player that fetches songs from [ChillHop](https://chillhop.com).
 
-[Demo](https://codesandbox.io/s/exciting-sea-p0kss)
+[Netlify Demo](https://chrisho-react-music-app.netlify.app)
+[Codesandbox Demo](https://codesandbox.io/s/exciting-sea-p0kss)
 
 <kbd><img src="github_assets/Screen-Recording-2021-03-18-at-11.12.57-AM.gif" width="80%"></kbd>
 
