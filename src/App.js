@@ -13,7 +13,12 @@ import Nav from "./components/Nav";
 import Player from "./components/Player";
 import Song from "./components/Song";
 
+import { getAnalytics, logEvent } from "firebase/analytics";
+
 function App() {
+  const analytics = getAnalytics();
+  logEvent(analytics, "view_landing_page");
+
   // !var States
   const [songs, setSongs] = React.useState(data());
   const [currentSong, setCurrentSong] = React.useState(songs[0]);
