@@ -1,5 +1,5 @@
-import * as Fa from 'react-icons/fa';
-
+import * as Fa from "react-icons/fa";
+import { EVENTS, logFirebaseEvent } from "../firebase";
 const Player = ({
   currentSong,
   isPlaying,
@@ -11,8 +11,8 @@ const Player = ({
   setCurrentSong,
   setSongs,
 }) => {
-  const activeLibraryHandler = nextPrev => {
-    const newSongs = songs.map(song => {
+  const activeLibraryHandler = (nextPrev) => {
+    const newSongs = songs.map((song) => {
       if (song.id === nextPrev.id) {
         return { ...song, active: true };
       } else {
@@ -30,22 +30,25 @@ const Player = ({
       audioRef.current.pause();
       setIsPlaying(!isPlaying);
     } else {
+      logFirebaseEvent(EVENTS.CLICK.PLAY_SONG, currentSong.name);
       audioRef.current.play();
       setIsPlaying(!isPlaying);
     }
   };
 
-  const dragHandler = e => {
+  const dragHandler = (e) => {
     audioRef.current.currentTime = e.target.value;
     setSongInfo({ ...songInfo, currentTime: e.target.value });
   };
 
-  const skipTrackHandler = async direction => {
-    let currentIndex = songs.findIndex(song => song.id === currentSong.id);
-    if (direction === 'skip-forward') {
+  const skipTrackHandler = async (direction) => {
+    let currentIndex = songs.findIndex((song) => song.id === currentSong.id);
+    if (direction === "skip-forward") {
+      logFirebaseEvent(EVENTS.CLICK.SKIP_FORWARD_SONG);
       await setCurrentSong(songs[(currentIndex + 1) % songs.length]);
       activeLibraryHandler(songs[(currentIndex + 1) % songs.length]);
-    } else if (direction === 'skip-back') {
+    } else if (direction === "skip-back") {
+      logFirebaseEvent(EVENTS.CLICK.SKIP_BACKWARD_SONG);
       if ((currentIndex - 1) % songs.length === -1) {
         await setCurrentSong(songs[songs.length - 1]);
         activeLibraryHandler(songs[songs.length - 1]);
@@ -59,11 +62,11 @@ const Player = ({
 
   // !exp ultility functions
   // this converts the seconds into minutes and seconds format
-  const getTime = time => {
+  const getTime = (time) => {
     const minutes = Math.floor(time / 60);
     const seconds = Math.floor(time % 60);
     // padStart will fill the string with '0' for 2 spaces, and then apply {seconds} at the end
-    const secondsWithZero = String(seconds).padStart(2, '0');
+    const secondsWithZero = String(seconds).padStart(2, "0");
     return `${minutes}:${secondsWithZero}`;
   };
 
@@ -73,8 +76,8 @@ const Player = ({
   };
 
   return (
-    <div className='player-container'>
-      <div className='time-control'>
+    <div className="player-container">
+      <div className="time-control">
         <p>{getTime(songInfo.currentTime)}</p>
         <div
           style={{
@@ -83,39 +86,38 @@ const Player = ({
           ${currentSong.color[1]}
         )`,
           }}
-          className='track'
-        >
+          className="track">
           <input
-            type='range'
+            type="range"
             min={0}
             max={songInfo.duration || 0}
             value={songInfo.currentTime}
             onChange={dragHandler}
           />
-          <div style={trackAnim} className='animate-track'></div>
+          <div style={trackAnim} className="animate-track"></div>
         </div>
         <p>{getTime(songInfo.duration || 0)}</p>
       </div>
-      <div className='play-control'>
+      <div className="play-control">
         <Fa.FaAngleLeft
           onClick={() => {
-            skipTrackHandler('skip-back');
+            skipTrackHandler("skip-back");
           }}
-          size='1rem'
-          className='skip-backward'
+          size="1rem"
+          className="skip-backward"
         />
         {isPlaying ? (
-          <Fa.FaPause onClick={playSongHandler} size='1rem' className='play' />
+          <Fa.FaPause onClick={playSongHandler} size="1rem" className="play" />
         ) : (
-          <Fa.FaPlay onClick={playSongHandler} size='1rem' className='pause' />
+          <Fa.FaPlay onClick={playSongHandler} size="1rem" className="pause" />
         )}
 
         <Fa.FaAngleRight
           onClick={() => {
-            skipTrackHandler('skip-forward');
+            skipTrackHandler("skip-forward");
           }}
-          size='1rem'
-          className='skip-forward'
+          size="1rem"
+          className="skip-forward"
         />
       </div>
     </div>

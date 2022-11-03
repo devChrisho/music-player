@@ -1,5 +1,5 @@
 // import react
-import * as React from "react";
+import React, { useEffect } from "react";
 
 // import styles
 import "./styles/app.scss";
@@ -13,11 +13,14 @@ import Nav from "./components/Nav";
 import Player from "./components/Player";
 import Song from "./components/Song";
 
-import { getAnalytics, logEvent } from "firebase/analytics";
+import EVENTS from "./firebase/events";
+import { logFirebaseEvent } from "./firebase/logFirebaseEvent";
 
 function App() {
-  const analytics = getAnalytics();
-  logEvent(analytics, "view_landing_page");
+  // log to firebase tracker when app loads
+  useEffect(() => {
+    logFirebaseEvent(EVENTS.VIEW.LANDING);
+  }, []);
 
   // !var States
   const [songs, setSongs] = React.useState(data());
