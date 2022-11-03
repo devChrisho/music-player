@@ -1,17 +1,17 @@
 // import react
-import * as React from 'react';
+import * as React from "react";
 
 // import styles
-import './styles/app.scss';
+import "./styles/app.scss";
 
 // import data
-import data from './data';
+import data from "./data";
 
 // import components
-import Library from './components/Library';
-import Nav from './components/Nav';
-import Player from './components/Player';
-import Song from './components/Song';
+import Library from "./components/Library";
+import Nav from "./components/Nav";
+import Player from "./components/Player";
+import Song from "./components/Song";
 
 function App() {
   // !var States
@@ -28,7 +28,7 @@ function App() {
   // !exp Ref
   const audioRef = React.useRef(null);
 
-  const timeUpdateHandler = e => {
+  const timeUpdateHandler = (e) => {
     // !exp currentTime and duration are audio element built in attributes (https://developer.mozilla.org/en-US/docs/Web/HTML/Element/audio)
     const currentTime = e.target.currentTime;
     const duration = e.target.duration;
@@ -47,13 +47,13 @@ function App() {
   };
 
   const songEndHandler = async () => {
-    let currentIndex = songs.findIndex(song => song.id === currentSong.id);
+    let currentIndex = songs.findIndex((song) => song.id === currentSong.id);
     await setCurrentSong(songs[(currentIndex + 1) % songs.length]);
     if (isPlaying) audioRef.current.play();
   };
 
   return (
-    <div className={`App ${libraryStatus ? 'library-active' : ''}`}>
+    <div className={`App ${libraryStatus ? "library-active" : ""}`}>
       <Nav libraryStatus={libraryStatus} setLibraryStatus={setLibraryStatus} />
       <Song currentSong={currentSong} />
       <Player
@@ -84,7 +84,7 @@ function App() {
         ref={audioRef}
         src={currentSong.audio}
         onEnded={songEndHandler}
-      ></audio>
+      />
     </div>
   );
 }
