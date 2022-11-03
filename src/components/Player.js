@@ -44,11 +44,11 @@ const Player = ({
   const skipTrackHandler = async (direction) => {
     let currentIndex = songs.findIndex((song) => song.id === currentSong.id);
     if (direction === "skip-forward") {
-      logFirebaseEvent(EVENTS.CLICK.SKIP_FORWARD_SONG);
+      logFirebaseEvent(EVENTS.CLICK.SKIP_FORWARD_SONG, currentSong.name);
       await setCurrentSong(songs[(currentIndex + 1) % songs.length]);
       activeLibraryHandler(songs[(currentIndex + 1) % songs.length]);
     } else if (direction === "skip-back") {
-      logFirebaseEvent(EVENTS.CLICK.SKIP_BACKWARD_SONG);
+      logFirebaseEvent(EVENTS.CLICK.SKIP_BACKWARD_SONG, currentSong.name);
       if ((currentIndex - 1) % songs.length === -1) {
         await setCurrentSong(songs[songs.length - 1]);
         activeLibraryHandler(songs[songs.length - 1]);

@@ -1,4 +1,5 @@
-import { FaMusic } from 'react-icons/fa';
+import { FaMusic } from "react-icons/fa";
+import { EVENTS, logFirebaseEvent } from "../firebase";
 
 const Nav = ({ libraryStatus, setLibraryStatus }) => {
   return (
@@ -6,9 +7,9 @@ const Nav = ({ libraryStatus, setLibraryStatus }) => {
       <h1>iMusic</h1>
       <button
         onClick={() => {
+          logFirebaseEvent(EVENTS.CLICK.LIBRARY_ICON);
           setLibraryStatus(!libraryStatus);
-        }}
-      >
+        }}>
         Library
         <FaMusic />
       </button>
