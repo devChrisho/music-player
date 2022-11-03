@@ -22,6 +22,10 @@ const EVENTS = {
       eventName: "click_library_icon",
       params: {},
     },
+    LIBRARY_SONG: {
+      eventName: "click_library_song",
+      params: {},
+    },
   },
 };
 
