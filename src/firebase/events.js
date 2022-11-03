@@ -18,6 +18,14 @@ const EVENTS = {
       eventName: "click_skip_backward_song",
       params: {},
     },
+    LIBRARY_ICON: {
+      eventName: "click_library_icon",
+      params: {},
+    },
+    LIBRARY_SONG: {
+      eventName: "click_library_song",
+      params: {},
+    },
   },
 };
 
