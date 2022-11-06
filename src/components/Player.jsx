@@ -1,3 +1,4 @@
+import React from "react";
 import * as Fa from "react-icons/fa";
 import { EVENTS, logFirebaseEvent } from "../firebase";
 const Player = ({

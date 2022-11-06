@@ -1,3 +1,4 @@
+import React from "react";
 import { FaMusic } from "react-icons/fa";
 import { EVENTS, logFirebaseEvent } from "../firebase";
 
