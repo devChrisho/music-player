@@ -15,6 +15,12 @@
   opacity: 0;
 }
 
+#darkMode .library {
+  background-color: #222026;
+  color: #81789b;
+  box-shadow: 2px 2px 50px #100f12;
+}
+
 .library-song {
   display: flex;
   align-items: center;
@@ -29,6 +35,16 @@
   }
 }
 
+#darkMode .library-song:hover {
+  background-color: #58456f;
+  h3 {
+    color: black;
+  }
+  h4 {
+    color: black;
+  }
+}
+
 .song-description {
   padding-left: 1rem;
   h3 {
@@ -39,10 +55,23 @@
   }
 }
 
+#darkMode .song-description {
+  h3 {
+    color: #81789b;
+  }
+  h4 {
+    color: #565168;
+  }
+}
+
 // sets scrollbar for firefox
 * {
   scrollbar-width: thin;
   scrollbar-color: rgba(187, 187, 187, 0.296) transparent;
+}
+
+#darkMode * {
+  scrollbar-color: rgba(100, 100, 100, 0.296) transparent;
 }
 
 // sets scrollbar for other browsers like chrome
@@ -58,8 +87,27 @@
   border: transparent;
 }
 
+#darkMode *::-webkit-scrollbar-thumb {
+  background-color: rgba(53, 53, 53, 0.296);
+  border-radius: 20px;
+  border: transparent;
+}
+
 .selected {
   background-color: rgb(216, 247, 235);
+}
+
+#darkMode .selected {
+  background-color: rgb(44, 40, 47);
+  img {
+    box-shadow: 0px 0px 5px 1px #d8d8d847;
+  }
+  h3 {
+    color: #9389b1;
+  }
+  h4 {
+    color: #746d8d;
+  }
 }
 
 .active-library {
