@@ -15,11 +15,12 @@ import Song from "./components/Song";
 
 import EVENTS from "./firebase/events";
 import { logFirebaseEvent } from "./firebase/logFirebaseEvent";
+import { FaThemeco } from "react-icons/fa";
 
 function App() {
   // log to firebase tracker when app loads
   useEffect(() => {
-    logFirebaseEvent(EVENTS.VIEW.LANDING);
+    logFirebaseEvent(EVENTS.VIEW.LANDING, "");
   }, []);
 
   // !var States
@@ -32,6 +33,7 @@ function App() {
     animationPercentage: 0,
   });
   const [libraryStatus, setLibraryStatus] = React.useState(false);
+  const [isDarkTheme, setIsDarkTheme] = React.useState(false);
 
   // !exp Ref
   const audioRef = React.useRef(null);
@@ -57,12 +59,18 @@ function App() {
   const songEndHandler = async () => {
     let currentIndex = songs.findIndex((song) => song.id === currentSong.id);
     await setCurrentSong(songs[(currentIndex + 1) % songs.length]);
-    if (isPlaying) audioRef.current.play();
+    if (isPlaying) audioRef?.current?.play();
   };
 
   return (
-    <div className={`App ${libraryStatus ? "library-active" : ""}`}>
-      <Nav libraryStatus={libraryStatus} setLibraryStatus={setLibraryStatus} />
+    <div
+      className={`App ${libraryStatus ? "library-active" : ""}`}
+      id={isDarkTheme ? "darkMode" : "lightMode"}>
+      <Nav
+        libraryStatus={libraryStatus}
+        setLibraryStatus={setLibraryStatus}
+        setIsDarkTheme={setIsDarkTheme}
+      />
       <Song currentSong={currentSong} />
       <Player
         currentSong={currentSong}

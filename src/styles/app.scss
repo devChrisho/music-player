@@ -1,11 +1,11 @@
 // import partials
-@import './player';
-@import './song';
-@import './library';
-@import './nav';
+@import "./player";
+@import "./song";
+@import "./library";
+@import "./nav";
 
 // font
-@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap");
 
 * {
   margin: 0;
@@ -19,8 +19,16 @@ h3 {
   color: rgb(53, 53, 53);
 }
 
+#darkMode {
+  h1,
+  h2,
+  h3 {
+    color: #81789b;
+  }
+}
+
 body {
-  font-family: 'Lato', sans-serif;
+  font-family: "Lato", sans-serif;
 }
 
 h3,
@@ -29,10 +37,28 @@ h4 {
   color: rgb(101, 101, 101);
 }
 
-.App{
+.App {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+
   transition: all 0.5s ease;
 }
 
-.library-active{
+#darkMode {
+  background-color: #222026;
+  color: #81789b;
+  h1 {
+    color: #81789b;
+  }
+  h2 {
+    color: #81789b;
+  }
+  h3 {
+    color: #565168;
+  }
+}
+
+.library-active {
   margin-left: 30%;
 }
