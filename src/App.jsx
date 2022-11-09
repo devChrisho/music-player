@@ -1,23 +1,14 @@
-// import react
 import React, { useEffect } from "react";
-
-// import styles
 import "./styles/app.scss";
-
-// import data
 import data from "./data";
-
-// import components
 import Library from "./components/Library";
 import Nav from "./components/Nav";
 import Player from "./components/Player";
 import Song from "./components/Song";
-
 import EVENTS from "./firebase/events";
 import { logFirebaseEvent } from "./firebase/logFirebaseEvent";
-import { FaThemeco } from "react-icons/fa";
 
-function App() {
+function App({ isDarkTheme, setIsDarkTheme }) {
   // log to firebase tracker when app loads
   useEffect(() => {
     logFirebaseEvent(EVENTS.VIEW.LANDING, "");
@@ -33,7 +24,6 @@ function App() {
     animationPercentage: 0,
   });
   const [libraryStatus, setLibraryStatus] = React.useState(false);
-  const [isDarkTheme, setIsDarkTheme] = React.useState(false);
 
   // !exp Ref
   const audioRef = React.useRef(null);
@@ -59,6 +49,7 @@ function App() {
   const songEndHandler = async () => {
     let currentIndex = songs.findIndex((song) => song.id === currentSong.id);
     await setCurrentSong(songs[(currentIndex + 1) % songs.length]);
+    // @ts-ignore
     if (isPlaying) audioRef?.current?.play();
   };
 
@@ -70,8 +61,9 @@ function App() {
         libraryStatus={libraryStatus}
         setLibraryStatus={setLibraryStatus}
         setIsDarkTheme={setIsDarkTheme}
+        isDarkTheme={isDarkTheme}
       />
-      <Song currentSong={currentSong} />
+      <Song currentSong={currentSong} isPlaying={isPlaying} />
       <Player
         currentSong={currentSong}
         isPlaying={isPlaying}
