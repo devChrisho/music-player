@@ -11,7 +11,7 @@ const Nav = ({
   return (
     <nav>
       <h1>iMusic</h1>
-      <div>
+      <div style={{ zIndex: 5 }}>
         <button
           style={{ marginRight: "5px" }}
           onClick={() => {
