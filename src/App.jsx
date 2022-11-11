@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import "./styles/app.scss";
-import data from "./data";
 import Library from "./components/Library";
 import Nav from "./components/Nav";
 import Player from "./components/Player";
@@ -13,7 +12,17 @@ import { Bars } from "react-loader-spinner";
 
 function App({ isDarkTheme, setIsDarkTheme }) {
   const [isLoading, setIsLoading] = useState(false);
-  const [songs, setSongs] = React.useState(data());
+  const [songs, setSongs] = React.useState([
+    {
+      name: "",
+      cover: "",
+      artist: "",
+      audio: "",
+      color: [],
+      id: "",
+      active: false,
+    },
+  ]);
   const [currentSong, setCurrentSong] = React.useState(songs[0]);
   const [isPlaying, setIsPlaying] = React.useState(false);
   const [songInfo, setSongInfo] = React.useState({
@@ -47,7 +56,18 @@ function App({ isDarkTheme, setIsDarkTheme }) {
         items.push({ ...doc.data(), id: doc.id });
       });
 
-      setSongs(items);
+      const compare = (a, b) => {
+        if (a.name < b.name) {
+          return -1;
+        }
+        if (a.name > b.name) {
+          return 1;
+        }
+        return 0;
+      };
+
+      setSongs(items.sort(compare));
+      setCurrentSong(items[Math.floor(Math.random() * items.length)]);
       setIsLoading(false);
     });
 
@@ -107,7 +127,7 @@ function App({ isDarkTheme, setIsDarkTheme }) {
         <div
           style={{
             margin: "0 auto",
-            marginTop: "50%",
+            marginTop: "200px",
           }}>
           <Bars color={isDarkTheme ? "#81789b" : "#606060"} />
         </div>
