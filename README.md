@@ -44,6 +44,7 @@ To get familiar with using React.js by completing this project by DevEd.
 ## Technologies used:
 
 - React.js
+- Vite
 - SASS
 - HTML
 - Netlify
