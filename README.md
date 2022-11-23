@@ -10,7 +10,7 @@ This project was originally created with [Create React App](https://github.com/f
 
 It is a Lofi Music player that fetches songs from [ChillHop](https://chillhop.com) which fetches from firebase on load and also has a darktheme. 
 
-[Netlify Demo](https://chrisho-react-music-app.netlify.app)
+[Netlify Demo](https://chrisho-music-app.netlify.app)
 
 [Codesandbox Demo](https://codesandbox.io/s/exciting-sea-p0kss)
 
