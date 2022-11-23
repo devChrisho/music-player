@@ -6,7 +6,7 @@
 ![GitHub top language](https://img.shields.io/github/languages/top/superchrisho/music-player?color=yellow&logo=javascript&style=plastic)
 [![Netlify Status](https://api.netlify.com/api/v1/badges/a0574d84-a383-4467-bac3-5739b95ec7e6/deploy-status)](https://app.netlify.com/sites/chrisho-music-app/deploys)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project was originally created with [Create React App](https://github.com/facebook/create-react-app), and then migrated to using Vite
 
 It is a Lofi Music player that fetches songs from [ChillHop](https://chillhop.com) which fetches from firebase on load and also has a darktheme. 
 
