@@ -1,6 +1,6 @@
 import React from "react";
 import { createRoot } from "react-dom/client";
-import AppWrapper from "./AppWrapper";
+import AppWrapper from "./components/App/AppWrapper";
 
 const container = document.getElementById("root");
 // @ts-ignore

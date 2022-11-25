@@ -1,6 +1,6 @@
 import React from "react";
 import { FaMusic } from "react-icons/fa";
-import { EVENTS, logFirebaseEvent } from "../firebase";
+import { EVENTS, logFirebaseEvent } from "../../firebase";
 
 const Nav = ({
   libraryStatus,
@@ -22,14 +22,16 @@ const Nav = ({
               );
               return !prev;
             });
-          }}>
+          }}
+        >
           {isDarkTheme ? "Dark" : "Light"}
         </button>
         <button
           onClick={() => {
             logFirebaseEvent(EVENTS.CLICK.LIBRARY_ICON, "");
             setLibraryStatus(!libraryStatus);
-          }}>
+          }}
+        >
           Library
           <FaMusic style={{ marginLeft: "3px" }} />
         </button>
