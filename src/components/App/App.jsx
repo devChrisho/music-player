@@ -38,7 +38,10 @@ function App({ isDarkTheme, setIsDarkTheme }) {
     let currentIndex = songs.findIndex((song) => song.id === currentSong.id);
     await setCurrentSong(songs[(currentIndex + 1) % songs.length]);
     // @ts-ignore
-    if (isPlaying) audioRef?.current?.play();
+    if (isPlaying) {
+      // @ts-ignore
+      audioRef?.current?.play();
+    }
   };
 
   // log to firebase tracker when app loads
