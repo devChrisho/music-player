@@ -1,13 +1,11 @@
 import React, { useEffect, useState } from "react";
-import "./styles/app.scss";
-import Library from "./components/Library";
-import Nav from "./components/Nav";
-import Player from "./components/Player";
-import Song from "./components/Song";
-import EVENTS from "./firebase/events";
-import { logFirebaseEvent } from "./firebase/logFirebaseEvent";
+import "../../styles/app.scss";
+import Library from "../Library/Library";
+import Nav from "../Nav/Nav";
+import Player from "../Player/Player";
+import Song from "../Song/Song";
 import { collection, onSnapshot } from "firebase/firestore";
-import db from "./firebase/firebaseConfig";
+import { db, logFirebaseEvent, EVENTS } from "../../firebase/";
 import { Bars } from "react-loader-spinner";
 
 function App({ isDarkTheme, setIsDarkTheme }) {
@@ -38,7 +36,10 @@ function App({ isDarkTheme, setIsDarkTheme }) {
     let currentIndex = songs.findIndex((song) => song.id === currentSong.id);
     await setCurrentSong(songs[(currentIndex + 1) % songs.length]);
     // @ts-ignore
-    if (isPlaying) audioRef?.current?.play();
+    if (isPlaying) {
+      // @ts-ignore
+      audioRef?.current?.play();
+    }
   };
 
   const collectionRef = collection(db, "songs");
@@ -79,7 +80,8 @@ function App({ isDarkTheme, setIsDarkTheme }) {
   return (
     <div
       className={`App ${libraryStatus ? "library-active" : ""}`}
-      id={isDarkTheme ? "darkMode" : "lightMode"}>
+      id={isDarkTheme ? "darkMode" : "lightMode"}
+    >
       {!isLoading ? (
         <>
           <Nav
@@ -128,7 +130,8 @@ function App({ isDarkTheme, setIsDarkTheme }) {
           style={{
             margin: "0 auto",
             marginTop: "200px",
-          }}>
+          }}
+        >
           <Bars color={isDarkTheme ? "#81789b" : "#606060"} />
         </div>
       )}
