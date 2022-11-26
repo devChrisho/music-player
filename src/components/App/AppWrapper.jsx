@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from "react";
+import React, { useMemo } from "react";
 import App from "./App";
 
 const AppWrapper = () => {
@@ -7,7 +7,9 @@ const AppWrapper = () => {
     [localStorage],
   );
 
-  const [isDarkTheme, setIsDarkTheme] = useState(localIsDarkTheme);
+  const [isDarkTheme, setIsDarkTheme] = React.useState(
+    localIsDarkTheme ? localIsDarkTheme : false,
+  );
   return (
     <div style={{ background: isDarkTheme ? "#222026" : "white" }}>
       <App isDarkTheme={isDarkTheme} setIsDarkTheme={setIsDarkTheme} />

@@ -1,38 +1,36 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import "../../styles/app.scss";
 import Library from "../Library/Library";
 import Nav from "../Nav/Nav";
 import Player from "../Player/Player";
 import Song from "../Song/Song";
-import { onSnapshot } from "firebase/firestore";
-import { logFirebaseEvent, EVENTS } from "../../firebase/";
+import { collection, onSnapshot } from "firebase/firestore";
+import { db, logFirebaseEvent, EVENTS } from "../../firebase/";
 import { Bars } from "react-loader-spinner";
-import { songsCollectionRef } from "../../firebase/firestore.collections";
-
-const initialSongsState = [
-  {
-    name: "",
-    cover: "",
-    artist: "",
-    audio: "",
-    color: [],
-    id: "",
-    active: false,
-  },
-];
 
 function App({ isDarkTheme, setIsDarkTheme }) {
   const [isLoading, setIsLoading] = useState(false);
-  const [songs, setSongs] = useState(initialSongsState);
-  const [currentSong, setCurrentSong] = useState(songs[0]);
-  const [isPlaying, setIsPlaying] = useState(false);
-  const [songInfo, setSongInfo] = useState({
+  const [songs, setSongs] = React.useState([
+    {
+      name: "",
+      cover: "",
+      artist: "",
+      audio: "",
+      color: [],
+      id: "",
+      active: false,
+    },
+  ]);
+  const [currentSong, setCurrentSong] = React.useState(songs[0]);
+  const [isPlaying, setIsPlaying] = React.useState(false);
+  const [songInfo, setSongInfo] = React.useState({
     currentTime: 0,
     duration: 0,
     animationPercentage: 0,
   });
-  const [libraryStatus, setLibraryStatus] = useState(false);
-  const audioRef = useRef(null);
+  const [libraryStatus, setLibraryStatus] = React.useState(false);
+
+  const audioRef = React.useRef(null);
 
   const songEndHandler = async () => {
     let currentIndex = songs.findIndex((song) => song.id === currentSong.id);
@@ -44,6 +42,8 @@ function App({ isDarkTheme, setIsDarkTheme }) {
     }
   };
 
+  const collectionRef = collection(db, "songs");
+
   // log to firebase tracker when app loads
   useEffect(() => {
     logFirebaseEvent(EVENTS.VIEW.LANDING, "");
@@ -51,12 +51,21 @@ function App({ isDarkTheme, setIsDarkTheme }) {
 
   useEffect(() => {
     setIsLoading(true);
-
-    const unsubscribe = onSnapshot(songsCollectionRef, (querySnapShot) => {
+    const unsub = onSnapshot(collectionRef, (querySnapShot) => {
       const items = [];
       querySnapShot.forEach((doc) => {
         items.push({ ...doc.data(), id: doc.id });
       });
+
+      const compare = (a, b) => {
+        if (a.name < b.name) {
+          return -1;
+        }
+        if (a.name > b.name) {
+          return 1;
+        }
+        return 0;
+      };
 
       setSongs(items.sort(compare));
       setCurrentSong(items[Math.floor(Math.random() * items.length)]);
@@ -64,7 +73,7 @@ function App({ isDarkTheme, setIsDarkTheme }) {
     });
 
     return () => {
-      unsubscribe();
+      unsub();
     };
   }, []);
 
@@ -130,9 +139,9 @@ function App({ isDarkTheme, setIsDarkTheme }) {
   );
 }
 
-// =================
+export default App;
+
 // Helper function
-// =================
 const timeUpdateHandler = (event, songInfo, setSongInfo) => {
   // !exp currentTime and duration are audio element built in attributes (https://developer.mozilla.org/en-US/docs/Web/HTML/Element/audio)
   const currentTime = event.target.currentTime;
@@ -150,15 +159,3 @@ const timeUpdateHandler = (event, songInfo, setSongInfo) => {
     animationPercentage: animation,
   });
 };
-
-const compare = (a, b) => {
-  if (a.name < b.name) {
-    return -1;
-  }
-  if (a.name > b.name) {
-    return 1;
-  }
-  return 0;
-};
-
-export default App;
