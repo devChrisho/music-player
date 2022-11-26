@@ -1,5 +1,5 @@
 import React from "react";
-import { EVENTS, logFirebaseEvent } from "../../firebase";
+import { EVENTS, logFirebaseEvent } from "../firebase";
 
 const LibrarySong = ({
   song,
@@ -31,8 +31,7 @@ const LibrarySong = ({
   return (
     <div
       onClick={songSelectHandler}
-      className={`library-song ${song.active ? "selected" : ""}`}
-    >
+      className={`library-song ${song.active ? "selected" : ""}`}>
       <img src={song.cover} alt={song.name} />
       <div className="song-description">
         <h3>{song.name}</h3>

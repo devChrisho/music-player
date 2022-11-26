@@ -1,0 +1,237 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap");
+.player-container {
+  min-width: 30vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.time-control {
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.time-control input {
+  width: 100%;
+  outline: none;
+  -webkit-appearance: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+.time-control p {
+  padding: 1rem;
+}
+
+.play-control {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  width: 30%;
+}
+.play-control svg {
+  cursor: pointer;
+}
+
+input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  height: 16px;
+  width: 16px;
+}
+
+input[type=range]::-moz-range-thumb {
+  -webkit-appearance: none;
+  background: transparent;
+  border: none;
+}
+
+.track {
+  background-color: lightblue;
+  width: 100%;
+  height: 1rem;
+  position: relative;
+  border-radius: 1rem;
+  overflow: hidden;
+}
+
+.animate-track {
+  background-color: rgb(204, 204, 204);
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translateX(0%);
+  pointer-events: none;
+}
+
+@media screen and (max-width: 768px) {
+  .time-control {
+    width: 90%;
+  }
+  .play-control {
+    width: 60%;
+  }
+}
+.song-container {
+  min-height: 60vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.song-container img {
+  width: 20%;
+  border-radius: 50%;
+}
+.song-container h2 {
+  padding: 3rem 1rem 1rem 1rem;
+}
+.song-container h3 {
+  font-size: 1rem;
+}
+
+@media screen and (max-width: 768px) {
+  .song-container img {
+    width: 60%;
+  }
+}
+.flex {
+  flex-wrap: nowrap;
+}
+
+.library {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 20rem;
+  height: 100%;
+  background-color: rgb(255, 255, 255);
+  box-shadow: 2px 2px 50px rgb(193, 193, 193);
+  overflow: scroll;
+  transform: translateX(-100%);
+  transition: all 0.5s ease;
+  opacity: 0;
+}
+.library h2 {
+  padding: 2rem;
+}
+
+.library-song {
+  display: flex;
+  align-items: center;
+  padding: 1rem 2rem 1rem 2rem;
+  cursor: pointer;
+  transition: background 0.5s ease;
+}
+.library-song img {
+  width: 30%;
+}
+.library-song:hover {
+  background-color: lightcyan;
+}
+
+.song-description {
+  padding-left: 1rem;
+}
+.song-description h3 {
+  font-size: 1rem;
+}
+.song-description h4 {
+  font-size: 0.7rem;
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(187, 187, 187, 0.296) transparent;
+}
+
+*::-webkit-scrollbar {
+  width: 5px;
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: rgba(187, 187, 187, 0.296);
+  border-radius: 20px;
+  border: transparent;
+}
+
+.selected {
+  background-color: rgb(216, 247, 235);
+}
+
+.active-library {
+  transform: translateX(0%);
+  opacity: 1;
+}
+
+@media screen and (max-width: 768px) {
+  .library {
+    width: 100%;
+  }
+}
+nav {
+  min-height: 10vh;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+nav button {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  cursor: pointer;
+  color: rgb(96, 96, 96);
+  border: 1px solid rgb(96, 96, 96);
+  padding: 0.5rem;
+  transition: all 0.3s ease;
+}
+nav button:hover {
+  background-color: rgb(96, 96, 96);
+  color: white;
+}
+nav h1 {
+  color: rgb(96, 96, 96);
+}
+
+@media screen and (max-width: 768px) {
+  nav button {
+    z-index: 10;
+  }
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+h1,
+h2,
+h3 {
+  color: rgb(53, 53, 53);
+}
+
+body {
+  font-family: "Lato", sans-serif;
+}
+
+h3,
+h4 {
+  font-weight: 400;
+  color: rgb(101, 101, 101);
+}
+
+.App {
+  transition: all 0.5s ease;
+}
+
+.library-active {
+  margin-left: 30%;
+}/*# sourceMappingURL=app.css.map */

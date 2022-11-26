@@ -1,5 +1,5 @@
 import React from "react";
-import LibrarySong from "./LibrarySong";
+import LibrarySong from "../components/LibrarySong";
 const Library = ({
   songs,
   setCurrentSong,

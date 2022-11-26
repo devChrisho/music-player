@@ -1,6 +1,6 @@
 import React from "react";
 import * as Fa from "react-icons/fa";
-import { EVENTS, logFirebaseEvent } from "../../firebase";
+import { EVENTS, logFirebaseEvent } from "../firebase";
 const Player = ({
   currentSong,
   isPlaying,
@@ -87,8 +87,7 @@ const Player = ({
           ${currentSong.color[1]}
         )`,
           }}
-          className="track"
-        >
+          className="track">
           <input
             type="range"
             min={0}

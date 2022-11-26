@@ -1,5 +1,5 @@
 import { logEvent } from "firebase/analytics";
-import { analytics } from "./";
+import { analytics } from "./firebaseConfig";
 /**
  * It takes an event object and a song name, and logs the event to Firebase Analytics
  * @param event - The event object that we created in the previous step.
