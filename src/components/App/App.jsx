@@ -32,17 +32,23 @@ function App({ isDarkTheme, setIsDarkTheme }) {
     animationPercentage: 0,
   });
   const [libraryStatus, setLibraryStatus] = useState(false);
+  const [isSongEnded, setIsSongEnded] = useState(false);
   const audioRef = useRef(null);
 
   const songEndHandler = async () => {
     let currentIndex = songs.findIndex((song) => song.id === currentSong.id);
-    await setCurrentSong(songs[(currentIndex + 1) % songs.length]);
+    setCurrentSong(songs[(currentIndex + 1) % songs.length]);
+    setIsSongEnded(true);
+  };
+
+  useEffect(() => {
     // @ts-ignore
-    if (isPlaying) {
+    if (isPlaying && isSongEnded === true) {
       // @ts-ignore
       audioRef?.current?.play();
+      setIsSongEnded(false);
     }
-  };
+  }, [isSongEnded, currentSong]);
 
   // log to firebase tracker when app loads
   useEffect(() => {
